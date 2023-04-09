@@ -1,1 +1,1 @@
-from utils import Data_Obj
+from fastencode.utils import DataObj
