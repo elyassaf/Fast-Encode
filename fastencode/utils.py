@@ -1,4 +1,5 @@
 from typing import List
+from base64 import b64encode, b64decode
 
 # Helper Functions
 def strtoasc(x: str) -> List[int]:
@@ -60,6 +61,7 @@ class DataObj:
     bytes: bytes = b""
     bin: str = ""
     num: int = 0
+    b64: bytes = ""
 
     def fromHex(x: str):
         d0 = DataObj()
@@ -69,6 +71,7 @@ class DataObj:
         d0.bin = asctobin(d0.asc)
         d0.bytes = bytes.fromhex(x)
         d0.num = int(d0.hex, 16)
+        d0.b64 = b64encode(d0.bytes)
         return d0
 
     def fromAsc(x: List[int]):
@@ -77,8 +80,9 @@ class DataObj:
         d0.asc = x
         d0.str = asctostr(x)
         d0.bin = asctobin(d0.asc)
-        d0.bytes = d0.str.encode('utf-8')
+        d0.bytes = bytes.fromhex(d0.hex)
         d0.num = int(d0.hex, 16)
+        d0.b64 = b64encode(d0.bytes)
         return d0
 
     def fromStr(x: str):
@@ -87,8 +91,9 @@ class DataObj:
         d0.asc = strtoasc(x)
         d0.str = x
         d0.bin = asctobin(d0.asc)
-        d0.bytes = d0.str.encode('utf-8')
+        d0.bytes = bytes.fromhex(d0.hex)
         d0.num = int(d0.hex, 16)
+        d0.b64 = b64encode(d0.bytes)
         return d0
 
     def fromBin(x: str):
@@ -97,8 +102,9 @@ class DataObj:
         d0.asc = bintoasc(x)
         d0.str = asctostr(bintoasc(x))
         d0.bin = x
-        d0.bytes = d0.str.encode('utf-8')
+        d0.bytes = bytes.fromhex(d0.hex)
         d0.num = int(d0.hex, 16)
+        d0.b64 = b64encode(d0.bytes)
         return d0
 
     def fromNum(x: int):
@@ -107,21 +113,28 @@ class DataObj:
         d0.asc = hextoasc(d0.hex)
         d0.str = asctostr(d0.asc)
         d0.bin = asctobin(d0.asc)
-        d0.bytes = d0.str.encode('utf-8')
+        d0.bytes = bytes.fromhex(d0.hex)
         d0.num = x
+        d0.b64 = b64encode(d0.bytes)
         return d0
 
     def fromBytes(x: bytes):
         d0 = DataObj()
         d0.bytes = x
-        d0.str = x.decode('utf-8')
         d0.asc = strtoasc(d0.str)
-        d0.hex = asctohex(d0.asc)
+        d0.hex = x.hex()
         d0.bin = asctobin(d0.asc)
         d0.num = int(d0.hex, 16)
+        d0.str = asctostr(d0.asc)
+        d0.b64 = b64encode(d0.bytes)
+        return d0
+    
+    def fromB64(x: bytes):
+        return DataObj.fromBytes(b64decode(x))
+
 
     def __str__(self):
-        return f"Hex: {self.hex}, ascii: {self.asc}, String: {self.str}, Number: {self.num} Binary: {self.bin}"
+        return f"Hex: {self.hex}, ascii: {self.asc}, String: {self.str}, Number: {self.num} Binary: {self.bin} Base64: {self.b64}"
 
 if __name__ == '__main__':
     print('You should import this file and run it directly.')
