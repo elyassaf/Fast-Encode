@@ -9,7 +9,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
   name = 'fastencode',         # How you named your package folder (MyLib)
   packages = ['fastencode'],   # Chose the same as "name"
-  version = '1.2',      # Start with a small number and increase it with every change you make
+  version = '1.3',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'An easy way to use different encoding: bytes, hex, ascii array, binary, long, base64',   # Give a short description about your library
   long_description = long_description,
@@ -17,7 +17,7 @@ setup(
   author = 'ES3',                   # Type in your name
   author_email = 'ourteamscare@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/user/reponame',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/elyassaf/Easy-Encoding/archive/refs/tags/v_1.0.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/elyassaf/Easy-Encoding/archive/refs/tags/v_1.3.tar.gz',    # I explain this later on
   keywords = ['encoding', 'hex', 'bytes', 'binary representation', 'decoding', 'ascii', 'base64'],   # Keywords that define your package best
   install_requires=['typing', 'base64'],
   classifiers=[
