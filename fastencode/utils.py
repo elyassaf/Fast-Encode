@@ -121,8 +121,8 @@ class DataObj:
     def fromBytes(x: bytes):
         d0 = DataObj()
         d0.bytes = x
-        d0.asc = strtoasc(d0.str)
         d0.hex = x.hex()
+        d0.asc = hextoasc(d0.hex)
         d0.bin = asctobin(d0.asc)
         d0.num = int(d0.hex, 16)
         d0.str = asctostr(d0.asc)

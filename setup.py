@@ -11,15 +11,15 @@ setup(
   packages = ['fastencode'],   # Chose the same as "name"
   version = '1.2',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
-  description = 'An easy way to use different encoding: bytes, hex, ascii array, binary, long',   # Give a short description about your library
+  description = 'An easy way to use different encoding: bytes, hex, ascii array, binary, long, base64',   # Give a short description about your library
   long_description = long_description,
   long_description_content_type='text/markdown',
   author = 'ES3',                   # Type in your name
   author_email = 'ourteamscare@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/user/reponame',   # Provide either the link to your github or to your website
   download_url = 'https://github.com/elyassaf/Easy-Encoding/archive/refs/tags/v_1.0.tar.gz',    # I explain this later on
-  keywords = ['encoding', 'hex', 'bytes', 'binary representation', 'decoding', 'ascii'],   # Keywords that define your package best
-  install_requires=['typing'],
+  keywords = ['encoding', 'hex', 'bytes', 'binary representation', 'decoding', 'ascii', 'base64'],   # Keywords that define your package best
+  install_requires=['typing', 'base64'],
   classifiers=[
     'Development Status :: 5 - Production/Stable',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
     'Intended Audience :: Developers',      # Define that your audience are developers
